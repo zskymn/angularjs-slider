@@ -1,6 +1,6 @@
-/*! angularjs-slider - v6.1.0 - 
+/*! angularjs-slider-zsk - v6.1.2 - 
  (c) Rafal Zajac <rzajac@gmail.com>, Valentin Hervieu <valentin@hervieu.me>, Jussi Saarivirta <jusasi@gmail.com>, Angelin Sirbu <angelin.sirbu@gmail.com> - 
- https://github.com/angular-slider/angularjs-slider - 
+ https://github.com/zskymn/angularjs-slider - 
  2017-03-07 */
 /*jslint unparam: true */
 /*global angular: false, console: false, define, module */
@@ -334,17 +334,12 @@
       this.cmbLab = null; // Combined label
       this.ticks = null; // The ticks
 
-      // Initialize slider
-      this.init();
+      // exec init delay 50ms to avoid element's zero size
+      $timeout((function (_this) {
+        // Initialize slider
+        _this.init();
+      })(this), 50);
 
-      // exec calcViewDimensions to avoid element's zero size 
-      $timeout((function(_this){
-        return function(){
-          if(_this.maxPos <=0){
-            _this.calcViewDimensions();
-          }
-        };
-      })(this), 100);
     };
 
     // Add instance methods

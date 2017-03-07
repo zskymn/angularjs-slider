@@ -338,17 +338,12 @@
       this.cmbLab = null; // Combined label
       this.ticks = null; // The ticks
 
-      // Initialize slider
-      this.init();
+      // exec init delay 50ms to avoid element's zero size
+      $timeout((function (_this) {
+        // Initialize slider
+        _this.init();
+      })(this), 50);
 
-      // exec calcViewDimensions to avoid element's zero size 
-      $timeout((function(_this){
-        return function(){
-          if(_this.maxPos <=0){
-            _this.calcViewDimensions();
-          }
-        };
-      })(this), 100);
     };
 
     // Add instance methods
