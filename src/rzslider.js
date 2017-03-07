@@ -340,6 +340,15 @@
 
       // Initialize slider
       this.init();
+
+      // exec calcViewDimensions to avoid element's zero size 
+      $timeout((function(_this){
+        return function(){
+          if(_this.maxPos <=0){
+            _this.calcViewDimensions();
+          }
+        };
+      })(this), 100);
     };
 
     // Add instance methods
