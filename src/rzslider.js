@@ -340,8 +340,12 @@
 
       // exec init delay 50ms to avoid element's zero size
       $timeout((function (_this) {
-        // Initialize slider
-        _this.init();
+
+        return function () {
+          // Initialize slider
+          _this.init();
+        };
+
       })(this), 50);
 
     };
