@@ -1,7 +1,7 @@
-/*! angularjs-slider-zsk - v6.1.2 - 
+/*! angularjs-slider-zsk - v6.1.3 - 
  (c) Rafal Zajac <rzajac@gmail.com>, Valentin Hervieu <valentin@hervieu.me>, Jussi Saarivirta <jusasi@gmail.com>, Angelin Sirbu <angelin.sirbu@gmail.com> - 
  https://github.com/zskymn/angularjs-slider - 
- 2017-03-07 */
+ 2017-03-08 */
 /*jslint unparam: true */
 /*global angular: false, console: false, define, module */
 (function(root, factory) {
@@ -336,8 +336,12 @@
 
       // exec init delay 50ms to avoid element's zero size
       $timeout((function (_this) {
-        // Initialize slider
-        _this.init();
+
+        return function () {
+          // Initialize slider
+          _this.init();
+        };
+
       })(this), 50);
 
     };
